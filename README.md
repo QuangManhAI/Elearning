@@ -8,7 +8,27 @@ cd home/quangmanh/Documents/c++
 ```
 git clone https://github.com/QuangManhAI/Elearning
 ```
+* Kiểm tra version c++ `linux`:
+```
+g++ --version
+```
+rồi quy đổi mã phiên bản:
+| Phiên bản GCC | Chuẩn C++ được hỗ trợ ổn định       |
+|----------------|-------------------------------------|
+| GCC 4.8 – 4.9  | C++11                              |
+| GCC 5.x – 6.x  | C++14                              |
+| GCC 7.x – 9.x  | C++17                              |
+| GCC 10.x – 11.x| C++20 (đa số tính năng)            |
+| GCC 12.x – 14.x| C++23 (rất đầy đủ)                 |
 
+* Chạy chường trình tại thư mục hiện hành `pwd`:
+```
+g++ E_2.cpp -o E_2
+```
+**và** 
+```
+./E_2
+```
 # Traveling Salesman Problem (TSP)
 
 ## Mục tiêu
