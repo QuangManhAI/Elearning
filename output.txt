@@ -1,0 +1,85 @@
+=== TEST CASE 1 (6 dinh) ===
+
+==== BACKTRACKING ====
+Chi phi toi thieu: 102
+Lo trinh: 0 1 4 5 2 3 0
+Thoi gian: 0 ms
+
+==== GREEDY ====
+Chi phi: 115
+Lo trinh: 0 3 1 4 5 2 0 
+Thoi gian: 0 ms
+
+==== DYNAMIC PROGRAMMING ====
+Chi phi toi thieu: 102
+Lo trinh:0 3 2 5 4 1 0
+Thoi gian: 0 ms
+
+=== TEST CASE 2 (8 dinh) ===
+
+==== BACKTRACKING ====
+Chi phi toi thieu: 144
+Lo trinh: 0 1 2 3 4 5 6 7 0
+Thoi gian: 0 ms
+
+==== GREEDY ====
+Chi phi: 144
+Lo trinh: 0 1 2 3 4 5 6 7 0 
+Thoi gian: 0 ms
+
+==== DYNAMIC PROGRAMMING ====
+Chi phi toi thieu: 144
+Lo trinh:0 7 6 5 4 3 2 1 0
+Thoi gian: 0 ms
+
+=== TEST CASE 3 (10 dinh) ===
+
+==== BACKTRACKING ====
+Chi phi toi thieu: 186
+Lo trinh: 0 1 2 3 4 5 6 7 8 9 0
+Thoi gian: 22 ms
+
+==== GREEDY ====
+Chi phi: 186
+Lo trinh: 0 1 2 3 4 5 6 7 8 9 0 
+Thoi gian: 0 ms
+
+==== DYNAMIC PROGRAMMING ====
+Chi phi toi thieu: 186
+Lo trinh:0 9 8 7 6 5 4 3 2 1 0
+Thoi gian: 0 ms
+
+=== TEST CASE 4 (11 dinh) ===
+
+==== BACKTRACKING ====
+Chi phi toi thieu: 142
+Lo trinh: 0 1 2 3 7 5 6 8 10 9 4 0
+Thoi gian: 150 ms
+
+==== GREEDY ====
+Chi phi: 168
+Lo trinh: 0 1 2 3 7 5 8 10 9 4 6 0 
+Thoi gian: 0 ms
+
+==== DYNAMIC PROGRAMMING ====
+Chi phi toi thieu: 142
+Lo trinh:0 4 9 10 8 6 5 7 3 2 1 0
+Thoi gian: 0 ms
+
+=== TEST CASE 5 (12 dinh) ===
+
+==== BACKTRACKING ====
+Chi phi toi thieu: 149
+Lo trinh: 0 1 2 3 11 9 10 5 6 7 8 4 0
+Thoi gian: 1757 ms
+
+==== GREEDY ====
+Chi phi: 166
+Lo trinh: 0 1 2 3 11 8 10 9 4 5 7 6 0 
+Thoi gian: 0 ms
+
+==== DYNAMIC PROGRAMMING ====
+Chi phi toi thieu: 149
+Lo trinh:0 4 8 7 6 5 10 9 11 3 2 1 0
+Thoi gian: 0 ms
+
