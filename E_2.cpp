@@ -5,46 +5,67 @@
 using namespace std;
 using namespace chrono;
 
-void chayQuayLui(int soDinh, int maTran[15][15], ofstream& fout) {
-    int danhDauTham[15] = {};
-    int loTrinhTam[15], loTrinhTotNhat[15];
+void quayLuiDeQuy(
+    int i,
+    int soDinh,
+    int maTran[15][15],
+    int danhDauTham[15],
+    int loTrinhTam[15],
+    int loTrinhTotNhat[15],
+    int &chiPhiTotThieu,
+    int chiPhiHienTai
+) {
+    if (i == soDinh) {
+        int tong = chiPhiHienTai + maTran[loTrinhTam[soDinh - 1]][0];
+        if (tong < chiPhiTotThieu) {
+            chiPhiTotThieu = tong;
+            for (int k = 0; k < soDinh; k++)
+                loTrinhTotNhat[k] = loTrinhTam[k];
+        }
+        return;
+    }
+
+    for (int j = 1; j < soDinh; j++) {
+        if (!danhDauTham[j]) {
+            danhDauTham[j] = 1;
+            loTrinhTam[i] = j;
+            quayLuiDeQuy(i + 1, soDinh, maTran, danhDauTham, loTrinhTam, loTrinhTotNhat, chiPhiTotThieu,
+                         chiPhiHienTai + maTran[loTrinhTam[i - 1]][j]);
+            danhDauTham[j] = 0;
+        }
+    }
+}
+
+void chayQuayLui(int soDinh, int maTran[15][15], ofstream &fout) {
+    int danhDauTham[15] = {0};
+    int loTrinhTam[15];
+    int loTrinhTotNhat[15];
     int chiPhiTotThieu = 999999;
 
-    auto quayLui = [&](auto& self, int i, int chiPhiHienTai) -> void {
-        if (i == soDinh) {
-            int tong = chiPhiHienTai + maTran[loTrinhTam[soDinh - 1]][0];
-            if (tong < chiPhiTotThieu) {
-                chiPhiTotThieu = tong;
-                for (int k = 0; k < soDinh; k++)
-                    loTrinhTotNhat[k] = loTrinhTam[k];
-            }
-            return;
-        }
-        for (int j = 1; j < soDinh; j++) {
-            if (!danhDauTham[j]) {
-                danhDauTham[j] = 1;
-                loTrinhTam[i] = j;
-                self(self, i + 1, chiPhiHienTai + maTran[loTrinhTam[i - 1]][j]);
-                danhDauTham[j] = 0;
-            }
-        }
-    };
-
-    auto batDau = high_resolution_clock::now();
     loTrinhTam[0] = 0;
     danhDauTham[0] = 1;
-    quayLui(quayLui, 1, 0);
+
+    auto batDau = high_resolution_clock::now();
+
+    quayLuiDeQuy(1, soDinh, maTran, danhDauTham, loTrinhTam, loTrinhTotNhat, chiPhiTotThieu, 0);
+
     auto ketThuc = high_resolution_clock::now();
-    auto thoiGian = duration_cast<milliseconds>(ketThuc - batDau).count();
+    double thoiGian = duration<double, milli>(ketThuc - batDau).count();
 
     fout << "==== BACKTRACKING ====\n";
     fout << "Chi phi toi thieu: " << chiPhiTotThieu << endl;
     fout << "Lo trinh: ";
-    for (int i = 0; i < soDinh; i++) fout << loTrinhTotNhat[i] << " ";
-    fout << "0\nThoi gian: " << thoiGian << " ms\n";
+    for (int i = 0; i < soDinh; i++)
+        fout << loTrinhTotNhat[i] << " ";
+    fout << "0\n";
+    fout << fixed << setprecision(6);
+    fout << "Thoi gian: " << thoiGian << " ms\n";
 }
 
+
 void thamLam(int soDinh, int maTran[15][15], ofstream& fout) {
+    auto batDau = high_resolution_clock::now();
+
     int danhDauTham[15] = {};
     int loTrinhTam[15];
     int batDauDinh = 0, chiPhi = 0, truocDo = batDauDinh, k = 0;
@@ -70,16 +91,21 @@ void thamLam(int soDinh, int maTran[15][15], ofstream& fout) {
     chiPhi += maTran[truocDo][batDauDinh];
     loTrinhTam[k++] = batDauDinh;
 
-    auto thoiGian = duration_cast<milliseconds>(high_resolution_clock::now() - high_resolution_clock::now()).count();
+    auto ketThuc = high_resolution_clock::now();
+    double thoiGian = duration<double, milli>(ketThuc - batDau).count();
 
     fout << "==== GREEDY ====\n";
     fout << "Chi phi: " << chiPhi << endl;
     fout << "Lo trinh: ";
     for (int i = 0; i < k; i++) fout << loTrinhTam[i] << " ";
-    fout << "\nThoi gian: " << thoiGian << " ms\n";
+    fout << "\n";
+    fout << fixed << setprecision(6);
+    fout << "Thoi gian: " << thoiGian << " ms\n";
 }
 
 void quyHoachDong(int soDinh, int maTran[15][15], ofstream& fout) {
+    auto batDau = high_resolution_clock::now();
+
     const int voCung = 999999;
     int bangDP[1 << 15][15], bangTruyVet[1 << 15][15];
 
@@ -124,17 +150,21 @@ void quyHoachDong(int soDinh, int maTran[15][15], ofstream& fout) {
         city = prev;
     }
 
-    auto thoiGian = duration_cast<milliseconds>(high_resolution_clock::now() - high_resolution_clock::now()).count();
+    auto ketThuc = high_resolution_clock::now();
+    double thoiGian = duration<double, milli>(ketThuc - batDau).count();
 
     fout << "==== DYNAMIC PROGRAMMING ====\n";
     fout << "Chi phi toi thieu: " << chiPhiTot << endl;
-    fout << "Lo trinh:";
+    fout << "Lo trinh: ";
     for (int i = 0; i < soDinh; i++) fout << loTrinhQHD[i] << " ";
-    fout << "0\nThoi gian: " << thoiGian << " ms\n";
+    fout << "0\n";
+    fout << fixed << setprecision(6);
+    fout << "Thoi gian: " << thoiGian << " ms\n";
 }
 
+
 bool docMotMaTran(ifstream& fin, int& soDinh, int maTran[15][15]) {
-    if (!(fin >> soDinh)) return false; // hết file
+    if (!(fin >> soDinh)) return false; 
     for (int i = 0; i < soDinh; i++)
         for (int j = 0; j < soDinh; j++)
             fin >> maTran[i][j];

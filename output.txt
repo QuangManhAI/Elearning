@@ -3,83 +3,83 @@
 ==== BACKTRACKING ====
 Chi phi toi thieu: 102
 Lo trinh: 0 1 4 5 2 3 0
-Thoi gian: 0 ms
+Thoi gian: 0.018524 ms
 
 ==== GREEDY ====
 Chi phi: 115
 Lo trinh: 0 3 1 4 5 2 0 
-Thoi gian: 0 ms
+Thoi gian: 0.000886 ms
 
 ==== DYNAMIC PROGRAMMING ====
 Chi phi toi thieu: 102
-Lo trinh:0 3 2 5 4 1 0
-Thoi gian: 0 ms
+Lo trinh: 0 3 2 5 4 1 0
+Thoi gian: 0.028893 ms
 
 === TEST CASE 2 (8 dinh) ===
 
 ==== BACKTRACKING ====
 Chi phi toi thieu: 144
 Lo trinh: 0 1 2 3 4 5 6 7 0
-Thoi gian: 0 ms
+Thoi gian: 0.415659 ms
 
 ==== GREEDY ====
 Chi phi: 144
 Lo trinh: 0 1 2 3 4 5 6 7 0 
-Thoi gian: 0 ms
+Thoi gian: 0.001135 ms
 
 ==== DYNAMIC PROGRAMMING ====
 Chi phi toi thieu: 144
-Lo trinh:0 7 6 5 4 3 2 1 0
-Thoi gian: 0 ms
+Lo trinh: 0 7 6 5 4 3 2 1 0
+Thoi gian: 0.126137 ms
 
 === TEST CASE 3 (10 dinh) ===
 
 ==== BACKTRACKING ====
 Chi phi toi thieu: 186
 Lo trinh: 0 1 2 3 4 5 6 7 8 9 0
-Thoi gian: 22 ms
+Thoi gian: 24.331121 ms
 
 ==== GREEDY ====
 Chi phi: 186
 Lo trinh: 0 1 2 3 4 5 6 7 8 9 0 
-Thoi gian: 0 ms
+Thoi gian: 0.000912 ms
 
 ==== DYNAMIC PROGRAMMING ====
 Chi phi toi thieu: 186
-Lo trinh:0 9 8 7 6 5 4 3 2 1 0
-Thoi gian: 0 ms
+Lo trinh: 0 9 8 7 6 5 4 3 2 1 0
+Thoi gian: 0.277174 ms
 
 === TEST CASE 4 (11 dinh) ===
 
 ==== BACKTRACKING ====
 Chi phi toi thieu: 142
 Lo trinh: 0 1 2 3 7 5 6 8 10 9 4 0
-Thoi gian: 150 ms
+Thoi gian: 163.543453 ms
 
 ==== GREEDY ====
 Chi phi: 168
 Lo trinh: 0 1 2 3 7 5 8 10 9 4 6 0 
-Thoi gian: 0 ms
+Thoi gian: 0.000862 ms
 
 ==== DYNAMIC PROGRAMMING ====
 Chi phi toi thieu: 142
-Lo trinh:0 4 9 10 8 6 5 7 3 2 1 0
-Thoi gian: 0 ms
+Lo trinh: 0 4 9 10 8 6 5 7 3 2 1 0
+Thoi gian: 0.514283 ms
 
 === TEST CASE 5 (12 dinh) ===
 
 ==== BACKTRACKING ====
 Chi phi toi thieu: 149
 Lo trinh: 0 1 2 3 11 9 10 5 6 7 8 4 0
-Thoi gian: 1757 ms
+Thoi gian: 1852.266368 ms
 
 ==== GREEDY ====
 Chi phi: 166
 Lo trinh: 0 1 2 3 11 8 10 9 4 5 7 6 0 
-Thoi gian: 0 ms
+Thoi gian: 0.001027 ms
 
 ==== DYNAMIC PROGRAMMING ====
 Chi phi toi thieu: 149
-Lo trinh:0 4 8 7 6 5 10 9 11 3 2 1 0
-Thoi gian: 0 ms
+Lo trinh: 0 4 8 7 6 5 10 9 11 3 2 1 0
+Thoi gian: 1.158994 ms
 
